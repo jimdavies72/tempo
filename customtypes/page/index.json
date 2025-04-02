@@ -27,6 +27,12 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "contact": {
+              "type": "SharedSlice"
+            },
+            "events": {
+              "type": "SharedSlice"
+            },
             "social_strip": {
               "type": "SharedSlice"
             },

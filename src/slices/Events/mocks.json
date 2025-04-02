@@ -1,0 +1,107 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"heading": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading2",
+						"content": {
+							"text": "Rocky"
+						}
+					}
+				]
+			},
+			"body": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Commodo incididunt nulla exercitation excepteur sit culpa ipsum aliqua commodo dolore deserunt cillum. Proident duis cupidatat minim eu sint mollit ea."
+						}
+					}
+				]
+			},
+			"event_group": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"event_name",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "heading3",
+											"content": {
+												"text": "Listen"
+											}
+										}
+									]
+								}
+							],
+							[
+								"location",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "Excepteur esse et sit nisi in enim elit officia eu anim minim non. Ullamco qui occaecat proident ipsum amet do adipisicing reprehenderit officia."
+											}
+										}
+									]
+								}
+							],
+							[
+								"description",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "Mollit Lorem fugiat elit laboris qui sunt aliquip id ad magna labore."
+											}
+										}
+									]
+								}
+							],
+							[
+								"tickets",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "Sold Out",
+									"type": "Select"
+								}
+							],
+							[
+								"ticket_price",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "45",
+									"type": "Number"
+								}
+							],
+							[
+								"date",
+								{
+									"__TYPE__": "FieldContent",
+									"type": "Date",
+									"value": "2013-04-18"
+								}
+							]
+						]
+					}
+				]
+			}
+		},
+		"items": []
+	}
+]

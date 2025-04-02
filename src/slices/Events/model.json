@@ -1,0 +1,100 @@
+{
+  "id": "events",
+  "type": "SharedSlice",
+  "name": "Events",
+  "description": "Events",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "heading": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Heading",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "heading2"
+          }
+        },
+        "body": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Body",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "paragraph"
+          }
+        },
+        "event_group": {
+          "type": "Group",
+          "config": {
+            "label": "Event Group",
+            "repeat": true,
+            "fields": {
+              "event_name": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "Event Name",
+                  "placeholder": "",
+                  "allowTargetBlank": true,
+                  "single": "heading3"
+                }
+              },
+              "date": {
+                "type": "Date",
+                "config": {
+                  "label": "Date",
+                  "placeholder": ""
+                }
+              },
+              "location": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "Location",
+                  "placeholder": "",
+                  "allowTargetBlank": true,
+                  "multi": "paragraph,heading3,strong,em"
+                }
+              },
+              "description": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "Description",
+                  "placeholder": "",
+                  "allowTargetBlank": true,
+                  "multi": "paragraph,heading3,strong,em,hyperlink,list-item,o-list-item"
+                }
+              },
+              "tickets": {
+                "type": "Select",
+                "config": {
+                  "label": "Tickets",
+                  "placeholder": "",
+                  "options": [
+                    "On Sale",
+                    "Selling Fast",
+                    "Sold Out",
+                    "On The Door"
+                  ]
+                }
+              },
+              "ticket_price": {
+                "type": "Number",
+                "config": {
+                  "label": "Ticket Price",
+                  "placeholder": ""
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

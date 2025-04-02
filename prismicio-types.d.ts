@@ -114,6 +114,8 @@ export type ArticleDocument<Lang extends string = string> =
   >;
 
 type PageDocumentDataSlicesSlice =
+  | ContactSlice
+  | EventsSlice
   | SocialStripSlice
   | ArticlesSlice
   | ShowcaseSlice
@@ -498,6 +500,203 @@ type BentoSliceVariation = BentoSliceDefault;
  * - **Documentation**: https://prismic.io/docs/slice
  */
 export type BentoSlice = prismic.SharedSlice<"bento", BentoSliceVariation>;
+
+/**
+ * Primary content in *Contact → Default → Primary*
+ */
+export interface ContactSliceDefaultPrimary {
+  /**
+   * Heading field in *Contact → Default → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact.default.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  heading: prismic.TitleField;
+
+  /**
+   * Body field in *Contact → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact.default.primary.body
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  body: prismic.RichTextField;
+
+  /**
+   * Form Enabled field in *Contact → Default → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: true
+   * - **API ID Path**: contact.default.primary.form_enabled
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  form_enabled: prismic.BooleanField;
+}
+
+/**
+ * Default variation for Contact Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ContactSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<ContactSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Contact*
+ */
+type ContactSliceVariation = ContactSliceDefault;
+
+/**
+ * Contact Shared Slice
+ *
+ * - **API ID**: `contact`
+ * - **Description**: Contact
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ContactSlice = prismic.SharedSlice<
+  "contact",
+  ContactSliceVariation
+>;
+
+/**
+ * Item in *Events → Default → Primary → Event Group*
+ */
+export interface EventsSliceDefaultPrimaryEventGroupItem {
+  /**
+   * Event Name field in *Events → Default → Primary → Event Group*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: events.default.primary.event_group[].event_name
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  event_name: prismic.TitleField;
+
+  /**
+   * Date field in *Events → Default → Primary → Event Group*
+   *
+   * - **Field Type**: Date
+   * - **Placeholder**: *None*
+   * - **API ID Path**: events.default.primary.event_group[].date
+   * - **Documentation**: https://prismic.io/docs/field#date
+   */
+  date: prismic.DateField;
+
+  /**
+   * Location field in *Events → Default → Primary → Event Group*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: events.default.primary.event_group[].location
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  location: prismic.RichTextField;
+
+  /**
+   * Description field in *Events → Default → Primary → Event Group*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: events.default.primary.event_group[].description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField;
+
+  /**
+   * Tickets field in *Events → Default → Primary → Event Group*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: events.default.primary.event_group[].tickets
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  tickets: prismic.SelectField<
+    "On Sale" | "Selling Fast" | "Sold Out" | "On The Door"
+  >;
+
+  /**
+   * Ticket Price field in *Events → Default → Primary → Event Group*
+   *
+   * - **Field Type**: Number
+   * - **Placeholder**: *None*
+   * - **API ID Path**: events.default.primary.event_group[].ticket_price
+   * - **Documentation**: https://prismic.io/docs/field#number
+   */
+  ticket_price: prismic.NumberField;
+}
+
+/**
+ * Primary content in *Events → Default → Primary*
+ */
+export interface EventsSliceDefaultPrimary {
+  /**
+   * Heading field in *Events → Default → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: events.default.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  heading: prismic.TitleField;
+
+  /**
+   * Body field in *Events → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: events.default.primary.body
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  body: prismic.RichTextField;
+
+  /**
+   * Event Group field in *Events → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: events.default.primary.event_group[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  event_group: prismic.GroupField<
+    Simplify<EventsSliceDefaultPrimaryEventGroupItem>
+  >;
+}
+
+/**
+ * Default variation for Events Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type EventsSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<EventsSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Events*
+ */
+type EventsSliceVariation = EventsSliceDefault;
+
+/**
+ * Events Shared Slice
+ *
+ * - **API ID**: `events`
+ * - **Description**: Events
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type EventsSlice = prismic.SharedSlice<"events", EventsSliceVariation>;
 
 /**
  * Primary content in *Hero → Default → Primary*
@@ -969,6 +1168,15 @@ declare module "@prismicio/client" {
       BentoSliceDefaultPrimary,
       BentoSliceVariation,
       BentoSliceDefault,
+      ContactSlice,
+      ContactSliceDefaultPrimary,
+      ContactSliceVariation,
+      ContactSliceDefault,
+      EventsSlice,
+      EventsSliceDefaultPrimaryEventGroupItem,
+      EventsSliceDefaultPrimary,
+      EventsSliceVariation,
+      EventsSliceDefault,
       HeroSlice,
       HeroSliceDefaultPrimary,
       HeroSliceVariation,

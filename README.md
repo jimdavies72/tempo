@@ -1,14 +1,16 @@
 # Repo: tempo
+
 ![Static Badge](https://img.shields.io/badge/Dev_status-Development-green)
 ![Static Badge](https://img.shields.io/badge/Test_status-Untested-red)
 
 ## Reason: To develop a stylish dark personal website for the Liverpool based Chef outfit 'Tempo.Liverpool'
 
 ### Description
-This repo represents the Next.JS/Typescript code that connects to a Prismic backend.
-A stylish, dark, responsive, content driven website with accessible animations. 
 
-This has been developed for the company Tempo.Liverpool as part of my portfolio 
+This repo represents the Next.JS/Typescript code that connects to a Prismic backend.
+A stylish, dark, responsive, content driven website with accessible animations.
+
+This has been developed for the company Tempo.Liverpool as part of my portfolio
 
 View the end product here: TBA
 
@@ -24,10 +26,11 @@ View the end product here: TBA
 
 ### To-do List
 
-- [ ] Event Timeline 
+- [x] Event Timeline
 - [ ] Contact Us Form
 - [ ] GSAP Animations
 - [ ] Site Logo
 - [ ] Content
-- [ ] Credits 
-
+- [ ] Credits
+- [ ] Timeline resize screen formatting bug
+- [ ] Fix ButtonLink pulse bug

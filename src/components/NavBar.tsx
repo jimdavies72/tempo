@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, FC } from "react";}
 
 import TempoLogo from "@/components/TempoLogo";
 import { asLink, Content } from "@prismicio/client";
@@ -58,7 +58,7 @@ export default function NavBar({ settings }: NavBarProps) {
         >
           <button
             type="button"
-            className="fixed top-4 right-4 mb-4 block p-2 text-3xl text-white md:hidden"
+            className="fixed top-8 right-4 mb-4 block p-2 text-3xl text-white md:hidden"
             aria-expanded={open}
             onClick={() => setOpen(false)}
           >
@@ -66,7 +66,7 @@ export default function NavBar({ settings }: NavBarProps) {
             <span className="sr-only">Close Menu</span>
           </button>
 
-          <div className="grid justify-items-end gap-8">
+          <div className="mt-10 grid justify-items-end gap-8">
             {settings.data.navigation.map((item) => {
               if (item.cta_button) {
                 return (

@@ -8,6 +8,7 @@ export const components = {
   contact: dynamic(() => import("./Contact")),
   events: dynamic(() => import("./Events")),
   hero: dynamic(() => import("./Hero")),
+  links_list: dynamic(() => import("./LinksList")),
   rich_text: dynamic(() => import("./RichText")),
   showcase: dynamic(() => import("./Showcase")),
   social_strip: dynamic(() => import("./SocialStrip")),

@@ -4,7 +4,7 @@ import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
-type ArticleDocumentDataSlicesSlice = RichTextSlice;
+type ArticleDocumentDataSlicesSlice = LinksListSlice | RichTextSlice;
 
 /**
  * Content for Article documents
@@ -30,7 +30,9 @@ interface ArticleDocumentData {
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#select
    */
-  article_type: prismic.SelectField<"Event" | "News" | "Case Study">;
+  article_type: prismic.SelectField<
+    "Event Article" | "News Article" | "Case Study Article" | "Website Article"
+  >;
 
   /**
    * Description field in *Article*
@@ -110,6 +112,63 @@ export type ArticleDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<
     Simplify<ArticleDocumentData>,
     "article",
+    Lang
+  >;
+
+/**
+ * Item in *Footer Settings → Links*
+ */
+export interface FooterSettingsDocumentDataLinksItem {
+  /**
+   * Link field in *Footer Settings → Links*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer_settings.links[].link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
+
+  /**
+   * Label field in *Footer Settings → Links*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer_settings.links[].label
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  label: prismic.KeyTextField;
+}
+
+/**
+ * Content for Footer Settings documents
+ */
+interface FooterSettingsDocumentData {
+  /**
+   * Links field in *Footer Settings*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer_settings.links[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  links: prismic.GroupField<Simplify<FooterSettingsDocumentDataLinksItem>>;
+}
+
+/**
+ * Footer Settings document from Prismic
+ *
+ * - **API ID**: `footer_settings`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type FooterSettingsDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<FooterSettingsDocumentData>,
+    "footer_settings",
     Lang
   >;
 
@@ -306,6 +365,7 @@ export type SettingsDocument<Lang extends string = string> =
 
 export type AllDocumentTypes =
   | ArticleDocument
+  | FooterSettingsDocument
   | PageDocument
   | SettingsDocument;
 
@@ -787,6 +847,76 @@ type HeroSliceVariation = HeroSliceDefault;
 export type HeroSlice = prismic.SharedSlice<"hero", HeroSliceVariation>;
 
 /**
+ * Item in *LinksList → Default → Primary → Links*
+ */
+export interface LinksListSliceDefaultPrimaryLinksItem {
+  /**
+   * Link field in *LinksList → Default → Primary → Links*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: links_list.default.primary.links[].link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
+
+  /**
+   * Label field in *LinksList → Default → Primary → Links*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: links_list.default.primary.links[].label
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  label: prismic.KeyTextField;
+}
+
+/**
+ * Primary content in *LinksList → Default → Primary*
+ */
+export interface LinksListSliceDefaultPrimary {
+  /**
+   * Links field in *LinksList → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: links_list.default.primary.links[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  links: prismic.GroupField<Simplify<LinksListSliceDefaultPrimaryLinksItem>>;
+}
+
+/**
+ * Default variation for LinksList Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type LinksListSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<LinksListSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *LinksList*
+ */
+type LinksListSliceVariation = LinksListSliceDefault;
+
+/**
+ * LinksList Shared Slice
+ *
+ * - **API ID**: `links_list`
+ * - **Description**: LinksList
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type LinksListSlice = prismic.SharedSlice<
+  "links_list",
+  LinksListSliceVariation
+>;
+
+/**
  * Primary content in *RichText → Default → Primary*
  */
 export interface RichTextSliceDefaultPrimary {
@@ -1151,6 +1281,9 @@ declare module "@prismicio/client" {
       ArticleDocument,
       ArticleDocumentData,
       ArticleDocumentDataSlicesSlice,
+      FooterSettingsDocument,
+      FooterSettingsDocumentData,
+      FooterSettingsDocumentDataLinksItem,
       PageDocument,
       PageDocumentData,
       PageDocumentDataSlicesSlice,
@@ -1181,6 +1314,11 @@ declare module "@prismicio/client" {
       HeroSliceDefaultPrimary,
       HeroSliceVariation,
       HeroSliceDefault,
+      LinksListSlice,
+      LinksListSliceDefaultPrimaryLinksItem,
+      LinksListSliceDefaultPrimary,
+      LinksListSliceVariation,
+      LinksListSliceDefault,
       RichTextSlice,
       RichTextSliceDefaultPrimary,
       RichTextSliceVariation,

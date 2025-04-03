@@ -52,7 +52,7 @@ const SocialStrip: FC<SocialStripProps> = ({ slice }) => {
         }}
       />
 
-      <div className="mx-auto mt-2 flex flex-col items-center justify-between gap-5 md:flex-row">
+      <div className="mx-auto mt-2 flex flex-row items-center justify-between gap-3 md:gap-5">
         {slice.primary.social_group.map((item, index) => (
           <div key={index} className="text-3xl text-balance md:text-5xl">
             <PrismicNextLink field={item.link}>

@@ -27,7 +27,7 @@ export default async function Page({ params }: { params: Promise<Params> }) {
           </div>
         </h1>
 
-        <p className="mt-8 mb-4 max-w-xl text-lg text-slate-300">
+        <p className="text-balance text-center mt-8 mb-4 max-w-xl text-lg text-slate-300">
           <PrismicText field={page.data.description} />
         </p>
         

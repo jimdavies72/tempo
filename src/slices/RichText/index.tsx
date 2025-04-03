@@ -10,7 +10,14 @@ import Bounded from "@/components/Bounded";
 
 const components: JSXMapSerializer = {
   hyperlink: ({ node, children }) => {
-    return <PrismicNextLink field={node.data}>{children}</PrismicNextLink>;
+    return (
+      <PrismicNextLink
+        field={node.data}
+        className="cursor-pointer whitespace-nowrap text-yellow-200 no-underline"
+      >
+        {children}
+      </PrismicNextLink>
+    );
   },
   label: ({ node, children }) => {
     if (node.data.label === "codespan") {

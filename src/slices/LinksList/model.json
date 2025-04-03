@@ -1,0 +1,46 @@
+{
+  "id": "links_list",
+  "type": "SharedSlice",
+  "name": "LinksList",
+  "description": "LinksList",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "links": {
+          "type": "Group",
+          "config": {
+            "label": "Links",
+            "repeat": true,
+            "fields": {
+              "link": {
+                "type": "Link",
+                "config": {
+                  "label": "Link",
+                  "placeholder": "",
+                  "select": null,
+                  "allowTargetBlank": true,
+                  "allowText": true,
+                  "repeat": false
+                }
+              },
+              "label": {
+                "type": "Text",
+                "config": {
+                  "label": "Label",
+                  "placeholder": ""
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

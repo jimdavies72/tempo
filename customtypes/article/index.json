@@ -26,7 +26,12 @@
         "config": {
           "label": "Article Type",
           "placeholder": "",
-          "options": ["Event", "News", "Case Study"]
+          "options": [
+            "Event Article",
+            "News Article",
+            "Case Study Article",
+            "Website Article"
+          ]
         }
       },
       "description": {
@@ -51,6 +56,9 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "links_list": {
+              "type": "SharedSlice"
+            },
             "rich_text": {
               "type": "SharedSlice"
             }

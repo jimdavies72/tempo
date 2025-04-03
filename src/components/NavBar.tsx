@@ -9,7 +9,8 @@ import Link from "next/link";
 import ButtonLink from "@/components/ButtonLink";
 
 import { FaBowlFood, FaEnvelope } from "react-icons/fa6";
-import { MdMenu, MdClose } from "react-icons/md";
+import { FaBurger } from "react-icons/fa6";
+import { LuUtensilsCrossed } from "react-icons/lu";
 import clsx from "clsx";
 import { usePathname } from "next/navigation";
 
@@ -43,7 +44,7 @@ export default function NavBar({ settings }: NavBarProps) {
             aria-expanded={open}
             onClick={() => setOpen(true)}
           >
-            <MdMenu />
+            <FaBurger className="text-[#cc8135]" />
             <span className="sr-only">Open Menu</span>
           </button>
         </div>
@@ -61,7 +62,7 @@ export default function NavBar({ settings }: NavBarProps) {
             aria-expanded={open}
             onClick={() => setOpen(false)}
           >
-            <MdClose />
+            <LuUtensilsCrossed className="text-[#cfc9c4]" />
             <span className="sr-only">Close Menu</span>
           </button>
 

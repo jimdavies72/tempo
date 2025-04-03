@@ -1,7 +1,7 @@
 "use client";
 
 import { Content, isFilled } from "@prismicio/client";
-import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
+import { PrismicRichText } from "@prismicio/react";
 import { PrismicNextImage } from "@prismicio/next";
 import ButtonLink from "@/components/ButtonLink";
 

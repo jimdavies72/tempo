@@ -28,7 +28,7 @@ View the end product here: TBA
 
 - [x] Event Timeline
 - [X] Contact Us Form
-- [ ] GSAP Animations
+- [X] GSAP Animations
 - [ ] Site Logo
 - [ ] Content
 - [X] Credits

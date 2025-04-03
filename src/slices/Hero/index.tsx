@@ -1,13 +1,10 @@
 import { FC } from "react";
-import { Content, isFilled } from "@prismicio/client";
+import { Content } from "@prismicio/client";
 import {
-  PrismicRichText,
   SliceComponentProps,
 } from "@prismicio/react";
-import { PrismicNextImage } from "@prismicio/next";
-import ButtonLink from "@/components/ButtonLink";
+
 import Bounded from "@/components/Bounded";
-import StarGrid from "@/components/StarGrid";
 import AnimatedContent from "./AnimatedContent";
 
 /**

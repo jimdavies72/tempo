@@ -24,13 +24,13 @@ const LinksList: FC<LinksListProps> = ({ slice }) => {
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
     >
-      <div className="w-full items-center border-b border-slate-600 pb-10">
+      <div className="w-full border-b border-slate-600 pb-10">
         <p>This website is powered by...</p>
         <Link href={wdLink} target="_blank">
           <HyperSpoonLogo />
         </Link>
       </div>
-      <div className="mt-8">
+      <div className="mt-8 text-center">
         {slice.primary.links.map((item) => (
           <div key={item.label}>
             {/* {item.link_type} */}

@@ -27,11 +27,11 @@ View the end product here: TBA
 ### To-do List
 
 - [x] Event Timeline
-- [ ] Contact Us Form
+- [X] Contact Us Form
 - [ ] GSAP Animations
 - [ ] Site Logo
 - [ ] Content
-- [ ] Credits
+- [X] Credits
 - [ ] Timeline resize screen formatting bug
 - [ ] Fix ButtonLink pulse bug
-- [ ] Format RichText Slice for gold, non split links etc
+- [X] Format RichText Slice for gold, non split links etc

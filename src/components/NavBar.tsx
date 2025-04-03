@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, FC } from "react";}
+import { useState, FC } from "react";
 
 import TempoLogo from "@/components/TempoLogo";
 import { asLink, Content } from "@prismicio/client";

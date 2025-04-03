@@ -2,7 +2,6 @@ import { FC } from "react";
 import { asDate, Content, isFilled } from "@prismicio/client";
 import {
   PrismicRichText,
-  PrismicText,
   SliceComponentProps,
 } from "@prismicio/react";
 import Bounded from "@/components/Bounded";

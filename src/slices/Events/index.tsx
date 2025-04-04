@@ -29,37 +29,37 @@ const Events: FC<EventsProps> = ({ slice }) => {
         <StarGrid />
 
         {isFilled.richText(slice.primary.heading) && (
-          <div className="text-center text-5xl font-medium text-balance md:text-7xl">
+          <div className="text-center text-5xl font-medium text-balance lg:text-7xl">
             <PrismicRichText field={slice.primary.heading} />
           </div>
         )}
 
         {isFilled.richText(slice.primary.body) && (
-          <div className="mt-4 max-w-lg text-lg text-balance text-yellow-500">
+          <div className="mt-4 max-w-lg text-lg text-center text-balance text-yellow-500">
             <PrismicRichText field={slice.primary.body} />
           </div>
         )}
       </div>
 
-      <div className="relative mt-16 space-y-8 before:absolute before:inset-0 before:ml-5 before:h-full before:w-0.5 before:-translate-x-px before:bg-gradient-to-b before:from-transparent before:via-slate-300 before:to-transparent md:before:ml-[19.45rem] md:before:translate-x-0">
+      <div className="relative mt-16 space-y-8 before:absolute before:inset-0 before:ml-5 before:h-full before:w-0.5 before:-translate-x-px before:bg-gradient-to-b before:from-transparent before:via-slate-300 before:to-transparent lg:before:ml-[19.45rem] lg:before:translate-x-0">
         {slice.primary.event_group.map((item, index) => (
-          <div key={index} className="md:mx-auto md:w-[70%]">
-            <div className="mb-3 md:ml-6.5 md:flex md:space-x-4">
-              <div className="flex items-center space-x-4 md:space-x-2 md:space-x-reverse">
+          <div key={index} className="lg:mx-auto lg:w-[70%]">
+            <div className="mb-3 lg:ml-6.5 lg:flex lg:space-x-4">
+              <div className="flex items-center space-x-4 lg:space-x-2 lg:space-x-reverse">
                 {/* Icon */}
-                <div className="flex h-10 w-10 items-center justify-center rounded-full border-2 border-yellow-100/60 bg-orange-600 md:order-1">
+                <div className="flex h-10 w-10 items-center justify-center rounded-full border-2 border-yellow-100/60 bg-orange-600 lg:order-1">
                   <FaBowlFood className="text-2xl text-slate-300" />
                 </div>
                 {/* Date */}
-                <time className="text-sm font-bold text-indigo-300 md:w-28">
+                <time className="text-sm font-bold text-indigo-300 lg:w-28">
                   {asDate(item.date)?.toLocaleDateString("en-GB")}
                 </time>
               </div>
               {/* Title */}
 
-              <div className="ml-14 text-left md:ml-0">
-                <div className="flex flex-col place-items-baseline md:flex-row md:space-x-2">
-                  <div className="text-md font-bold text-slate-400 md:text-xl">
+              <div className="ml-14 text-left lg:ml-0">
+                <div className="flex flex-col place-items-baseline lg:flex-row lg:space-x-2">
+                  <div className="text-md font-bold text-slate-400 lg:text-xl">
                     <PrismicRichText field={item.event_name} />
                   </div>
                 </div>
@@ -70,13 +70,13 @@ const Events: FC<EventsProps> = ({ slice }) => {
             </div>
             {/* Card */}
             <AnimatedContent>
-              <div className="mt-4 ml-14 grid rounded-sm border border-blue-50/20 bg-gradient-to-b from-slate-50/15 to-slate-50/5 pt-2 pr-4 pb-4 pl-4 text-left backdrop-blur-sm md:ml-50">
+              <div className="mt-4 ml-14 grid rounded-sm border border-blue-50/20 bg-gradient-to-b from-slate-50/15 to-slate-50/5 pt-2 pr-4 pb-4 pl-4 text-left backdrop-blur-sm lg:ml-50">
                 {item.date && asDate(item.date) < new Date() ? (
                   <p className="text-xl font-bold text-red-500">Past Event</p>
                 ) : null}
 
                 {isFilled.select(item.tickets) && (
-                  <div className="text-md mb-2 font-bold md:text-lg">
+                  <div className="text-md mb-2 font-bold lg:text-lg">
                     {item.tickets == "Sold Out" ? (
                       <p className="text-red-500">Tickets {item.tickets}</p>
                     ) : (
@@ -85,7 +85,7 @@ const Events: FC<EventsProps> = ({ slice }) => {
                   </div>
                 )}
                 {isFilled.number(item.ticket_price) && (
-                  <div className="text-md md:text-md mb-2 font-bold">
+                  <div className="text-md lg:text-md mb-2 font-bold">
                     <p className="text-slate-400">
                       Ticket Price: £{item.ticket_price}
                     </p>
@@ -96,7 +96,7 @@ const Events: FC<EventsProps> = ({ slice }) => {
                   field={item.description}
                   components={{
                     heading3: ({ children }) => (
-                      <h3 className="text-md mb-4 font-bold md:text-lg">
+                      <h3 className="text-md mb-4 font-bold lg:text-lg">
                         {children}
                       </h3>
                     ),
@@ -104,12 +104,12 @@ const Events: FC<EventsProps> = ({ slice }) => {
                       <p className="mb-2 text-sm text-slate-300">{children}</p>
                     ),
                     list: ({ children }) => (
-                      <ul className="mb-7 pl-4 last:mb-0 md:pl-6">
+                      <ul className="mb-7 pl-4 last:mb-0 lg:pl-6">
                         {children}
                       </ul>
                     ),
                     listItem: ({ children }) => (
-                      <li className="mb-1 list-disc pl-1 text-sm text-slate-300 last:mb-0 md:pl-2">
+                      <li className="mb-1 list-disc pl-1 text-sm text-slate-300 last:mb-0 lg:pl-2">
                         {children}
                       </li>
                     ),

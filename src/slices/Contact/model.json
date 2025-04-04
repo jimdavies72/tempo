@@ -38,6 +38,38 @@
             "placeholder_true": "true",
             "default_value": true
           }
+        },
+        "alternatives_heading": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Alternatives Heading",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "heading3"
+          }
+        },
+        "alternative_contacts": {
+          "type": "Group",
+          "config": {
+            "label": "Alternative Contacts",
+            "repeat": true,
+            "fields": {
+              "label": {
+                "type": "Text",
+                "config": {
+                  "label": "Label",
+                  "placeholder": "label for an alternative contact type"
+                }
+              },
+              "value": {
+                "type": "Text",
+                "config": {
+                  "label": "Value",
+                  "placeholder": ""
+                }
+              }
+            }
+          }
         }
       },
       "items": {}

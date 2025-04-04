@@ -4,7 +4,6 @@ import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
 import Bounded from "@/components/Bounded";
 import StarGrid from "@/components/StarGrid";
 import ContactForm from "@/components/ContactForm";
-  
 
 /**
  * Props for `Contact`.
@@ -24,7 +23,7 @@ const Contact: FC<ContactProps> = ({ slice }) => {
       <div className="relative">
         <StarGrid />
         {isFilled.richText(slice.primary.heading) && (
-          <div className="text-balance text-center text-5xl font-medium md:text-7xl">
+          <div className="text-center text-5xl font-medium text-balance md:text-7xl">
             <PrismicRichText field={slice.primary.heading} />
           </div>
         )}
@@ -44,8 +43,31 @@ const Contact: FC<ContactProps> = ({ slice }) => {
               public_key={process.env.EMAILJS_PUBLIC_KEY || ""}
             />
           ) : (
-            <div className="flex w-full justify-center flex-row gap-4 rounded-lg bg-[#070815] p-4 text-slate-300">
+            <div className="flex w-full flex-row justify-center gap-4 rounded-lg bg-[#070815] p-4 text-slate-300">
               <h3>Contact form is temporarily unavailable</h3>
+            </div>
+          )}
+        </div>
+
+        {/* Alternative Contact Details */}
+        <div className="mt-16">
+          {slice.primary.alternative_contacts.length > 0 && (
+            <div className="text-left">
+              {isFilled.richText(slice.primary.alternatives_heading) && (
+                <div className="mb-8 text-xl font-medium text-balance md:text-2xl">
+                  <PrismicRichText field={slice.primary.alternatives_heading} />
+                </div>
+              )}
+
+              <div className="text-slate-200">
+                {slice.primary.alternative_contacts.map((item, index) => (
+                  <div key={index} className="text-md mb-2 md:text-lg">
+                    <p>
+                      {item.label}: {item.value}{" "}
+                    </p>
+                  </div>
+                ))}
+              </div>
             </div>
           )}
         </div>

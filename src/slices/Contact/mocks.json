@@ -28,6 +28,43 @@
 			"form_enabled": {
 				"__TYPE__": "BooleanContent",
 				"value": false
+			},
+			"alternative_contacts": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"label",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "influence",
+									"type": "Text"
+								}
+							],
+							[
+								"value",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "sky",
+									"type": "Text"
+								}
+							]
+						]
+					}
+				]
+			},
+			"alternatives_heading": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading3",
+						"content": {
+							"text": "Would"
+						}
+					}
+				]
 			}
 		},
 		"items": []

@@ -33,5 +33,5 @@ View the end product here: TBA
 - [ ] Content
 - [X] Credits
 - [ ] Timeline resize screen formatting bug
-- [ ] Fix ButtonLink pulse bug
+- [X] Fix ButtonLink pulse bug
 - [X] Format RichText Slice for gold, non split links etc

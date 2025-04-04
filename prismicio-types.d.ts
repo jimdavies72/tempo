@@ -562,6 +562,31 @@ type BentoSliceVariation = BentoSliceDefault;
 export type BentoSlice = prismic.SharedSlice<"bento", BentoSliceVariation>;
 
 /**
+ * Item in *Contact → Default → Primary → Alternative Contacts*
+ */
+export interface ContactSliceDefaultPrimaryAlternativeContactsItem {
+  /**
+   * Label field in *Contact → Default → Primary → Alternative Contacts*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: label for an alternative contact type
+   * - **API ID Path**: contact.default.primary.alternative_contacts[].label
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  label: prismic.KeyTextField;
+
+  /**
+   * Value field in *Contact → Default → Primary → Alternative Contacts*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact.default.primary.alternative_contacts[].value
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  value: prismic.KeyTextField;
+}
+
+/**
  * Primary content in *Contact → Default → Primary*
  */
 export interface ContactSliceDefaultPrimary {
@@ -595,6 +620,28 @@ export interface ContactSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#boolean
    */
   form_enabled: prismic.BooleanField;
+
+  /**
+   * Alternatives Heading field in *Contact → Default → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact.default.primary.alternatives_heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  alternatives_heading: prismic.TitleField;
+
+  /**
+   * Alternative Contacts field in *Contact → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact.default.primary.alternative_contacts[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  alternative_contacts: prismic.GroupField<
+    Simplify<ContactSliceDefaultPrimaryAlternativeContactsItem>
+  >;
 }
 
 /**
@@ -1302,6 +1349,7 @@ declare module "@prismicio/client" {
       BentoSliceVariation,
       BentoSliceDefault,
       ContactSlice,
+      ContactSliceDefaultPrimaryAlternativeContactsItem,
       ContactSliceDefaultPrimary,
       ContactSliceVariation,
       ContactSliceDefault,

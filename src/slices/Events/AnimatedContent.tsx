@@ -16,6 +16,7 @@ export default function AnimatedContent({
   const container = useRef(null);
   const prefersReducedMotion = usePrefersReducedMotion();
   gsap.registerPlugin(useGSAP, ScrollTrigger);
+  let mm = gsap.matchMedia();
 
   useGSAP(
     () => {
@@ -24,21 +25,23 @@ export default function AnimatedContent({
         return;
       }
 
-      gsap.fromTo(
-        container.current,
-        { x: 100 },
-        {
-          x: 0,
-          ease: "power2.inOut",
-          duration: 1,
-          scrollTrigger: {
-            trigger: container.current,
-            start: "top 90%",
-            toggleActions: "play pause resume reverse",
-            //markers: false,
+      mm.add("(min-width: 801px)", () => {
+        gsap.fromTo(
+          container.current,
+          { x: 100 },
+          {
+            x: 0,
+            ease: "power2.inOut",
+            duration: 1,
+            scrollTrigger: {
+              trigger: container.current,
+              start: "top 90%",
+              toggleActions: "play pause resume reverse",
+              //markers: false,
+            },
           },
-        },
-      );
+        );
+      });
     },
     { scope: container },
   );
